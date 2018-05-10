@@ -1,0 +1,32 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+"asn1crypto" = "==0.24.0"
+certifi = "==2018.1.18"
+cffi = "==1.11.5"
+chardet = "==3.0.4"
+click = "==6.7"
+cryptography = "==2.2.2"
+gunicorn = "==19.7.1"
+idna = "==2.6"
+itsdangerous = "==0.24"
+pycparser = "==2.18"
+requests = "==2.18.4"
+six = "==1.11.0"
+"urllib3" = "==1.22"
+Flask = "==0.12.2"
+"Jinja2" = "==2.10"
+MarkupSafe = "==1.0"
+pyOpenSSL = "==17.5.0"
+Werkzeug = "==0.14.1"
+"psycopg2-binary" = "*"
+bcrypt = "*"
+coverage = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.6"

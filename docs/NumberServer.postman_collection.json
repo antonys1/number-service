@@ -1,0 +1,485 @@
+{
+	"info": {
+		"_postman_id": "ddb2db6d-6a43-45a2-8796-9174ac9ff204",
+		"name": "NumberServer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Initialize",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/init",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"init"
+					]
+				},
+				"description": "Initializes the service. An admin user is created with user id `admin` with default password `password`."
+			},
+			"response": []
+		},
+		{
+			"name": "Version",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/version",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"version"
+					]
+				},
+				"description": "Returns the application version string."
+			},
+			"response": []
+		},
+		{
+			"name": "User Add",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{admin_auth_token}}",
+						"description": "Admin Auth Token"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "{{user_id}}",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/user/add",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"user",
+						"add"
+					]
+				},
+				"description": "Admin endpoint to add a user."
+			},
+			"response": []
+		},
+		{
+			"name": "User Remove",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{admin_auth_token}}",
+						"description": "Admin Auth Token"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "{{user_id}}",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/user/remove",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"user",
+						"remove"
+					]
+				},
+				"description": "Admin endpoint to remove a user."
+			},
+			"response": []
+		},
+		{
+			"name": "User Auth Token Refresh",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/user/auth_token/refresh",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"user",
+						"auth_token",
+						"refresh"
+					]
+				},
+				"description": "User endpoint to refresh auth token."
+			},
+			"response": []
+		},
+		{
+			"name": "User Password Change",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "new_password",
+							"value": "{{new_password}}",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/user/password/change",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"user",
+						"password",
+						"change"
+					]
+				},
+				"description": "User endpoint to change password."
+			},
+			"response": []
+		},
+		{
+			"name": "Number Add",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{admin_auth_token}}",
+						"description": "Admin Auth Token"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "number_id",
+							"value": "{{number_id}}",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/number/add",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"number",
+						"add"
+					]
+				},
+				"description": "Admin endpoint to create a number."
+			},
+			"response": []
+		},
+		{
+			"name": "Number Remove",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{admin_auth_token}}",
+						"description": "Admin Auth Token"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "number_id",
+							"value": "{{number_id}}",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/number/remove",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"number",
+						"remove"
+					]
+				},
+				"description": "Admin endpoint to remove a number."
+			},
+			"response": []
+		},
+		{
+			"name": "Number Add User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{admin_auth_token}}",
+						"description": "Admin Auth Token"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "number_id",
+							"value": "{{number_id}}",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "user_id",
+							"value": "{{user_id}}",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/number/user/add",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"number",
+						"user",
+						"add"
+					]
+				},
+				"description": "Admin endpoint to grant a user read and next access to a number."
+			},
+			"response": []
+		},
+		{
+			"name": "Number Remove User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{admin_auth_token}}",
+						"description": "Admin Auth Token"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "number_id",
+							"value": "{{number_id}}",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "user_id",
+							"value": "{{user_id}}",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/number/user/remove",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"number",
+						"user",
+						"remove"
+					]
+				},
+				"description": "Admin endpoint to revoke a user's read and next access to a number."
+			},
+			"response": []
+		},
+		{
+			"name": "Number Current",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{user_auth_token}}",
+						"description": "User Auth Token"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "number_id",
+							"value": "{{number_id}}",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/number/current",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"number",
+						"current"
+					]
+				},
+				"description": "User endpoint to get a number's current value."
+			},
+			"response": []
+		},
+		{
+			"name": "Number Next",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{user_auth_token}}",
+						"description": "User Auth Token"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "number_id",
+							"value": "{{number_id}}",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/number/next",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"number",
+						"next"
+					]
+				},
+				"description": "User endpoint to get a number's next value."
+			},
+			"response": []
+		},
+		{
+			"name": "Number Set",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{admin_auth_token}}",
+						"description": "Admin Auth Token"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "number_id",
+							"value": "{{number_id}}",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "new_number",
+							"value": "{{new_number}}",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/number/set",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"number",
+						"set"
+					]
+				},
+				"description": "User endpoint to set a number's value."
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	}
+}
